@@ -1,8 +1,14 @@
 // app.js
 
+
 const express = require('express');
 const connectDB = require('./config/db');
 var cors = require('cors');
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
 
 // routes
 const books = require('./routes/api/books');
