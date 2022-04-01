@@ -62,7 +62,7 @@ class ShowBookList extends Component {
           <div className="list">
                 {bookList}
           </div>
-        </div>
+        </div>       
       </div>
     );
   }
