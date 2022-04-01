@@ -9,7 +9,7 @@
     "heroku-postbuild": "cd client && npm install && npm run build",
     "server": "nodemon server.js",
     "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm client --prefix client\"",
-    "start": "nodemon --exec babel-node server.js"
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm client --prefix client\""
   },
   "author": "",
   "license": "ISC",
