@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm install && cd client && npm install && react-scripts build",
+    "build": "npm install && cd client && npm install && npm run build",
     "install-client": "cd client && npm install",
-    "heroku-postbuild": "npm run install-client && react-scripts build",
+    "heroku-postbuild": "npm run install-client && npm run build",
     "server": "nodemon server.js",
     "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\"",
     "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\""
