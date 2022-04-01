@@ -1,4 +1,4 @@
-// app.js
+// server.js
 
 
 const express = require('express');
@@ -7,32 +7,32 @@ var cors = require('cors');
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 
 // routes
 const books = require('./routes/api/books');
 
-const app = express();
+const server = express();
 
 // Connect Database
 connectDB();
 
 // cors
-app.use(cors({ origin: true, credentials: true }));
+server.use(cors({ origin: true, credentials: true }));
 
 // Init Middleware
-app.use(express.json({ extended: false }));
+server.use(express.json({ extended: false }));
 
 // use Routes
-app.use('/api/books', books);
+server.use('/api/books', books);
 
 // Accessing the path module
 const path = require("path");
 
 // Step 1:
-app.use(express.static(path.resolve(__dirname, "./client/build")));
+server.use(express.static(path.resolve(__dirname, "./client/build")));
 // Step 2:
-app.get("/", function (request, response) {
+server.get("/", function (request, response) {
     response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
 });
