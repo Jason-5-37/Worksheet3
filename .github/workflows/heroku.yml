@@ -1,0 +1,17 @@
+name: heroku
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.6.8
+        with:
+          heroku_api_key: ${{secrets.4ee7d3b8-124f-49bf-9d8f-83fca2832aae}}
+          heroku_app_name: jasonworksheet3
+          heroku_email: zhanhonglu174@gmail.com
